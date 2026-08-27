@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="R S Tushar — First-year CS student at Scaler School of Technology (dual degree, BITS Pilani). Frontend developer, open-source contributor, building with React, Node.js and LLM APIs." />
+  <title>R S Tushar | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader"><span>RST</span></div>
+
+  <!-- Scroll progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#about" class="nav-logo">RST</a>
+      <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Work</a>
+        <a href="#opensource" class="nav-link">Open Source</a>
+        <a href="#academics" class="nav-link">Academics</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Connect</a>
+        <a href="https://drive.google.com/file/d/1ljTs4gwxm6rwVRlkYd_Gd9lyYHmMJuhh/view?usp=sharing" target="_blank" rel="noopener" class="nav-cta">Resume ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="about">
+    <div class="hero-photo">
+      <img src="assets/images/selfpic2.jpeg" alt="R S Tushar" width="180" height="180" loading="eager">
+    </div>
+    <p class="eyebrow">👋 Bengaluru, India</p>
+    <h1 class="glow">Hi, I'm R S Tushar</h1>
+    <h3 class="typewriter"><span id="typewriter-text"></span><span class="cursor">|</span></h3>
+    <p class="hero-desc">
+      2nd  Computer Science student at Scaler School of Technology (dual degree with BITS Pilani).
+      I build full-stack products with React and Node.js, dig into LLM API tooling, and file the kind of
+      bug reports that maintainers can act on without asking follow-up questions.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">▼ Explore my work</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
+    </div>
+  </header>
+
+  <!-- Explore -->
+  <section id="options">
+    <h2>Explore</h2>
+    <div class="options">
+      <a href="#academics" class="option-card">📘 Academics</a>
+      <a href="#projects" class="option-card">💻 Projects</a>
+      <a href="#opensource" class="option-card">🐛 Open Source</a>
+      <a href="#experience" class="option-card">🚀 Experience</a>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="reveal">
+    <h2>💡 Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="skill-list">
+          <span class="skill-tag">JavaScript (ES6+)</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag learning">TypeScript — learning</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Frontend</h4>
+        <div class="skill-list">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">Recharts</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Backend &amp; Data</h4>
+        <div class="skill-list">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">CLI Tooling</span>
+          <span class="skill-tag">Log Parsing</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Tools</h4>
+        <div class="skill-list">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="reveal">
+    <h2>💻 Work</h2>
+    <p class="section-sub">Projects I designed, built, and shipped end to end.</p>
+    <div class="projects-grid" id="projects-grid">
+      <!-- injected by js/script.js -->
+      <div class="project-card loading">LOADING…</div>
+      <div class="project-card loading">LOADING…</div>
+      <div class="project-card loading">LOADING…</div>
+    </div>
+  </section>
+
+  <!-- Open Source -->
+  <section id="opensource" class="reveal">
+    <h2>🐛 Open Source Contributions</h2>
+    <p class="section-sub">GirlScript Summer of Code (GSSoC) — structured bug reports across live OSS repositories.</p>
+    <div class="oss-card">
+      <div class="oss-summary">
+        <div class="oss-stat">
+          <span class="oss-stat-num">4+</span>
+          <span class="oss-stat-label">Reproducible bugs filed</span>
+        </div>
+        <p class="oss-desc">
+          Every report follows the same template — environment, numbered reproduction steps, expected vs. actual
+          behaviour, annotated screenshots, and usability impact — so maintainers can triage and fix without
+          circling back for clarification.
+        </p>
+      </div>
+      <ul class="oss-links" id="oss-links">
+        <!-- injected by js/script.js -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Academics -->
+  <section id="academics" class="reveal">
+    <h2>📘 Academics</h2>
+    <div class="edu-card">
+      <div class="edu-logo"><img src="assets/images/sstlogo.png" alt="Scaler School of Technology logo" loading="lazy"></div>
+      <div class="edu-info">
+        <h3>Scaler School of Technology</h3>
+        <p><strong>UG Programme — Computer Science &amp; Artificial Intelligence</strong></p>
+        <span>Aug 2025 – Aug 2029</span>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-logo"><img src="assets/images/bitslogo.png" alt="BITS Pilani logo" loading="lazy"></div>
+      <div class="edu-info">
+        <h3>BITS Pilani</h3>
+        <p><strong>B.Sc. Computer Science (Dual Degree)</strong></p>
+        <span>Aug 2025 – Aug 2029</span>
+      </div>
+    </div>
+    <div class="coursework">
+      <span class="skill-tag">Data Structures &amp; Algorithms</span>
+      <span class="skill-tag">OOP</span>
+      <span class="skill-tag">DBMS</span>
+      <span class="skill-tag">Web Development</span>
+      <span class="skill-tag">Data Analytics</span>
+      <span class="skill-tag">Linear Algebra</span>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="reveal">
+    <h2>🚀 Experience &amp; Leadership</h2>
+    <div class="exp-card">
+      <div class="exp-head">
+        <h3>Head of Partnerships</h3>
+        <span class="exp-date">Jul 2026 – Present</span>
+      </div>
+      <p class="exp-org">E-Cell, Scaler School of Technology</p>
+      <p>Own the sponsor pipeline end to end for the campus entrepreneurship cell — running parallel conversations to closure and coordinating deliverables across teams under fixed event deadlines.</p>
+    </div>
+    <div class="exp-card">
+      <div class="exp-head">
+        <h3>Member</h3>
+        <span class="exp-date">May 2026 – July 2026</span>
+      </div>
+      <p class="exp-org">NlogN — The Competitive Programming Club, SST</p>
+      <p>Solving timed algorithmic problems (DSA, greedy, graph theory) under contest conditions — sustained accuracy under time pressure and an edge-case-first habit.</p>
+    </div>
+  </section>
+
+  <!-- Goals -->
+  <section id="goals" class="reveal">
+    <h2>🎯 Goals</h2>
+    <div class="goals-grid">
+      <div class="goal-card">
+        <h4>Short-term</h4>
+        <p>Ship impactful open-source contributions, sharpen problem-solving through competitive programming, and go deeper on full-stack + LLM-powered tooling.</p>
+      </div>
+      <div class="goal-card">
+        <h4>Long-term</h4>
+        <p>Work at the intersection of AI-driven products and scalable systems — building real-world software that people rely on daily.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="reveal">
+    <h2>📩 Contact</h2>
+    <p class="section-sub">Open to internships and collaborations — always happy to talk shop.</p>
+    <div class="contact-links">
+      <a href="mailto:rstusharsst@gmail.com"><img src="https://img.icons8.com/ios-filled/30/ffffff/new-post.png" alt="" width="24" height="24"/> Mail me</a>
+      <a href="https://www.linkedin.com/in/r-s-tushar-824518222/" target="_blank" rel="noopener"><img src="https://img.icons8.com/ios-filled/30/ffffff/linkedin.png" alt="" width="24" height="24"/> LinkedIn</a>
+      <a href="https://github.com/Tusharcode007" target="_blank" rel="noopener"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png" alt="" width="24" height="24"/> GitHub</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> R S Tushar. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
