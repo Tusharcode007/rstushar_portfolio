@@ -29,7 +29,7 @@ is in the HTML, so the page works even with JavaScript turned off.
 │   └── script.js       # theme toggle, nav, reveal, typewriter, copy email
 ├── assets/
 │   └── images/
-│       ├── selfpic2.jpeg
+│       ├── profile.jpg
 │       ├── sstlogo.png
 │       └── bitslogo.png
 └── README.md

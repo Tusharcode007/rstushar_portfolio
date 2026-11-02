@@ -195,7 +195,6 @@ code {
 }
 .sticker-pink  { background: var(--pink);  transform: rotate(-2deg); }
 .sticker-green { background: var(--green); }
-.sticker-blue  { background: var(--blue); }
 .dot {
   width: 10px; height: 10px; border-radius: 50%;
   background: #111; animation: pulse 1.6s ease-in-out infinite;
@@ -295,9 +294,8 @@ code {
   transition: transform .2s ease;
 }
 .hero-photo:hover { transform: rotate(0deg); }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 .hero-badge   { position: absolute; left: -22px; bottom: 34px; transform: rotate(-4deg); }
-.hero-badge-2 { position: absolute; right: -16px; top: 22px; transform: rotate(6deg); }
 
 .stats {
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -570,6 +568,7 @@ code {
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .hero-photo-wrap { order: -1; width: min(64%, 280px); }
   .hero-photo { box-shadow: 10px 10px 0 var(--ink); }
+  .hero-badge { bottom: -18px; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .oss-grid, .edu-grid, .goals-grid { grid-template-columns: 1fr; }
   .more-card { grid-template-columns: 1fr; }
@@ -588,7 +587,6 @@ code {
   .feature-item, .oss-card, .skill-card, .exp-card { padding: 18px; }
   .card-method, .more-card { padding: 22px 18px; }
   .hero-badge { left: -8px; }
-  .hero-badge-2 { right: -6px; }
   .timeline { padding-left: 26px; }
   .timeline::before { left: 5px; }
   .exp-card::before { left: -30px; width: 16px; height: 16px; }
