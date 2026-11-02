@@ -1,19 +1,19 @@
 /* =========================================================
    R S Tushar — Portfolio
-   Vanilla JS: nav behaviour, scroll reveal, dynamic project
-   + open-source cards, typewriter hero line, back-to-top.
+   Vanilla JS: theme toggle, nav behaviour, scroll reveal,
+   typewriter hero line, copy-email, back-to-top.
+   All content lives in index.html, so the page works fully
+   without JavaScript.
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
   setFooterYear();
-  hideLoader();
+  initTheme();
   initTypewriter();
-  renderProjects();
-  renderOssLinks();
   initNav();
-  initScrollProgress();
+  initScrollEffects();
   initScrollReveal();
-  initBackToTop();
+  initCopyEmail();
 });
 
 /* ---------- Footer year ---------- */
@@ -22,21 +22,39 @@ function setFooterYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
-/* ---------- Loader ---------- */
-function hideLoader() {
-  const loader = document.getElementById("loader");
-  if (!loader) return;
-  window.addEventListener("load", () => {
-    setTimeout(() => loader.classList.add("hidden"), 300);
-  });
-  // Fallback in case 'load' already fired
-  setTimeout(() => loader.classList.add("hidden"), 1500);
+/* ---------- Theme toggle (light / dark, remembers choice) ---------- */
+function initTheme() {
+  const root = document.documentElement;
+  const btn = document.getElementById("theme-toggle");
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const current = () => root.getAttribute("data-theme") || (media.matches ? "dark" : "light");
+
+  const sync = () => {
+    const isDark = current() === "dark";
+    if (btn) btn.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", isDark ? "#141414" : "#FFD23F");
+  };
+
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) { /* storage blocked — theme still applies */ }
+      sync();
+    });
+  }
+  media.addEventListener?.("change", sync);
+  sync();
 }
 
 /* ---------- Typewriter hero subtitle ---------- */
 function initTypewriter() {
   const target = document.getElementById("typewriter-text");
   if (!target) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
   const phrases = [
     "Full-Stack Developer",
     "Open Source Contributor",
@@ -44,8 +62,8 @@ function initTypewriter() {
     "LLM Tooling Tinkerer",
   ];
   let phraseIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
+  let charIndex = phrases[0].length;
+  let deleting = true;
 
   function tick() {
     const current = phrases[phraseIndex];
@@ -54,7 +72,7 @@ function initTypewriter() {
       target.textContent = current.slice(0, charIndex);
       if (charIndex === current.length) {
         deleting = true;
-        setTimeout(tick, 1400);
+        setTimeout(tick, 1600);
         return;
       }
     } else {
@@ -65,190 +83,153 @@ function initTypewriter() {
         phraseIndex = (phraseIndex + 1) % phrases.length;
       }
     }
-    setTimeout(tick, deleting ? 40 : 80);
+    setTimeout(tick, deleting ? 35 : 75);
   }
-  tick();
+  // Show the first phrase in full before starting to cycle
+  setTimeout(tick, 1800);
 }
 
-/* ---------- Project data (edit here to add/update projects) ---------- */
-const PROJECTS = [
-  {
-    tag: "LLM API Cost Observability",
-    title: "TokenSense",
-    desc: "A Node.js CLI (built at a venture hackathon, team project) that parses LLM API usage logs, flags token-inefficiency patterns, and recommends model-switching strategies from token-to-cost analysis — no dashboard or extra infra needed.",
-    tech: ["JavaScript", "Node.js", "Git", "Linux"],
-    github: "https://github.com/Tusharcode007/TokenSense",
-    demo: null,
-  },
-  {
-    tag: "Academic Management",
-    title: "AI-Powered Study Companion",
-    desc: "An 8-module React SPA — task scheduling, dynamic filtering, revision planning, a Recharts analytics dashboard, and an AI-style study assistant for summaries, flashcards, and practice questions. Fully client-side, persisted with LocalStorage.",
-    tech: ["React", "JavaScript", "Recharts", "LocalStorage"],
-    github: "https://github.com/Tusharcode007/rst-AI-Powered-Study-Companion-",
-    demo: null,
-  },
-  {
-    tag: "Productivity Dashboard",
-    title: "Productivity Booster",
-    desc: "An all-in-one dashboard combining Pomodoro timer workflows, habit tracking, and goal visualisation, with persistent preferences and a modular panel structure so panels update independently without regressions.",
-    tech: ["React", "JavaScript", "CSS", "Git"],
-    github: "https://github.com/Tusharcode007/PRODUCTIVITY-BOOSTER",
-    demo: null,
-  },
-];
-
-function renderProjects() {
-  const grid = document.getElementById("projects-grid");
-  if (!grid) return;
-
-  grid.innerHTML = "";
-
-  PROJECTS.forEach((project, i) => {
-    const card = document.createElement("article");
-    card.className = "project-card reveal";
-    card.style.transitionDelay = `${i * 0.08}s`;
-
-    const links = [`<a href="${project.github}" target="_blank" rel="noopener">GitHub ↗</a>`];
-    if (project.demo) links.push(`<a href="${project.demo}" target="_blank" rel="noopener">Live demo ↗</a>`);
-
-    card.innerHTML = `
-      <span class="project-tag">${escapeHtml(project.tag)}</span>
-      <h3>${escapeHtml(project.title)}</h3>
-      <p class="project-desc">${escapeHtml(project.desc)}</p>
-      <div class="project-tech">${project.tech.map((t) => `<span>${escapeHtml(t)}</span>`).join("")}</div>
-      <div class="project-links">${links.join("")}</div>
-    `;
-    grid.appendChild(card);
-  });
-
-  // Newly-injected .reveal cards need observing too
-  observeReveal(grid.querySelectorAll(".reveal"));
-}
-
-/* ---------- Open source links ---------- */
-const OSS_LINKS = [
-  { label: "GSoC-Org-Finder — Modal interaction bug (#511)", url: "https://github.com/S3DFX-CYBER/GSoC-Org-Finder-/issues/511" },
-  { label: "TeaAndBooks — Issue #25", url: "https://github.com/vie-nyx/TeaAndBooks/issues/25" },
-  { label: "TeaAndBooks — Issue #26", url: "https://github.com/vie-nyx/TeaAndBooks/issues/26" },
-  { label: "TeaAndBooks — Issue #27", url: "https://github.com/vie-nyx/TeaAndBooks/issues/27" },
-];
-
-function renderOssLinks() {
-  const list = document.getElementById("oss-links");
-  if (!list) return;
-  list.innerHTML = OSS_LINKS.map(
-    (link) => `<li><a href="${link.url}" target="_blank" rel="noopener">${escapeHtml(link.label)} ↗</a></li>`
-  ).join("");
-}
-
-/* ---------- Nav: scroll shadow, active link, mobile toggle ---------- */
+/* ---------- Nav: mobile toggle + active-section highlighting ---------- */
 function initNav() {
-  const nav = document.getElementById("navbar");
   const toggle = document.getElementById("nav-toggle");
   const links = document.getElementById("nav-links");
   const navLinks = document.querySelectorAll(".nav-link");
 
-  window.addEventListener("scroll", () => {
-    nav.classList.toggle("scrolled", window.scrollY > 30);
-  });
+  const closeMenu = () => {
+    links.classList.remove("open");
+    toggle.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+  };
 
   if (toggle && links) {
     toggle.addEventListener("click", () => {
       const isOpen = links.classList.toggle("open");
       toggle.classList.toggle("open", isOpen);
       toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     });
-    links.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => {
-        links.classList.remove("open");
-        toggle.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      })
-    );
+    links.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && links.classList.contains("open")) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
   }
 
-  // Active-section highlighting
-  const sections = Array.from(navLinks)
-    .map((a) => document.querySelector(a.getAttribute("href")))
+  // The hero (#top) has no nav link; when it is in view, no link is active
+  const sections = [document.getElementById("top")]
+    .concat(Array.from(navLinks).map((a) => document.querySelector(a.getAttribute("href"))))
     .filter(Boolean);
 
-  if ("IntersectionObserver" in window && sections.length) {
-    const map = new Map();
-    navLinks.forEach((a) => map.set(a.getAttribute("href"), a));
+  if (!("IntersectionObserver" in window) || !sections.length) return;
 
-    const navObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const link = map.get(`#${entry.target.id}`);
-          if (!link) return;
-          if (entry.isIntersecting) {
-            navLinks.forEach((a) => a.classList.remove("active"));
-            link.classList.add("active");
-          }
+  const map = new Map();
+  navLinks.forEach((a) => map.set(a.getAttribute("href"), a));
+
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const link = map.get(`#${entry.target.id}`);
+        navLinks.forEach((a) => {
+          a.classList.remove("active");
+          a.removeAttribute("aria-current");
         });
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    );
-    sections.forEach((s) => navObserver.observe(s));
-  }
+        if (!link) return;
+        link.classList.add("active");
+        link.setAttribute("aria-current", "true");
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+  );
+  sections.forEach((s) => navObserver.observe(s));
 }
 
-/* ---------- Scroll progress bar ---------- */
-function initScrollProgress() {
+/* ---------- Scroll: nav shadow, progress bar, back-to-top ---------- */
+function initScrollEffects() {
+  const nav = document.getElementById("navbar");
   const bar = document.getElementById("scroll-progress");
-  if (!bar) return;
+  const backToTop = document.getElementById("back-to-top");
+  let ticking = false;
+
+  const update = () => {
+    const y = window.scrollY;
+    const doc = document.documentElement;
+    const height = doc.scrollHeight - doc.clientHeight;
+    if (nav) nav.classList.toggle("scrolled", y > 20);
+    if (bar) bar.style.width = `${height > 0 ? (y / height) * 100 : 0}%`;
+    if (backToTop) backToTop.classList.toggle("visible", y > 600);
+    ticking = false;
+  };
+
   window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const pct = height > 0 ? (scrollTop / height) * 100 : 0;
-    bar.style.width = `${pct}%`;
-  });
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  update();
+
+  if (backToTop) {
+    backToTop.addEventListener("click", () => {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+  }
 }
 
 /* ---------- Scroll reveal ---------- */
-let revealObserver;
 function initScrollReveal() {
   const items = document.querySelectorAll(".reveal");
-  observeReveal(items);
-}
-
-function observeReveal(items) {
   if (!("IntersectionObserver" in window)) {
     items.forEach((el) => el.classList.add("in-view"));
     return;
   }
-  if (!revealObserver) {
-    revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-  }
-  items.forEach((el) => revealObserver.observe(el));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+  items.forEach((el) => observer.observe(el));
 }
 
-/* ---------- Back to top ---------- */
-function initBackToTop() {
-  const btn = document.getElementById("back-to-top");
+/* ---------- Copy email to clipboard ---------- */
+function initCopyEmail() {
+  const btn = document.getElementById("copy-email");
+  const status = document.getElementById("copy-status");
   if (!btn) return;
-  window.addEventListener("scroll", () => {
-    btn.classList.toggle("visible", window.scrollY > 500);
-  });
-  btn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
 
-/* ---------- Utility ---------- */
-function escapeHtml(str) {
-  const div = document.createElement("div");
-  div.textContent = str;
-  return div.innerHTML;
+  btn.addEventListener("click", async () => {
+    const email = btn.dataset.email;
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(email);
+      ok = true;
+    } catch (e) {
+      // Fallback for browsers without the async clipboard API
+      const ta = document.createElement("textarea");
+      ta.value = email;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "absolute";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+      ta.remove();
+    }
+    btn.textContent = ok ? "Copied ✓" : "Copy";
+    if (status) status.textContent = ok ? "Email copied to clipboard" : "Couldn't copy — select the address instead";
+    setTimeout(() => {
+      btn.textContent = "Copy";
+      if (status) status.textContent = "";
+    }, 2200);
+  });
 }

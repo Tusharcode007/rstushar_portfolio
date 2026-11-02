@@ -3,231 +3,565 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="R S Tushar — First-year CS student at Scaler School of Technology (dual degree, BITS Pilani). Frontend developer, open-source contributor, building with React, Node.js and LLM APIs." />
-  <title>R S Tushar | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="css/style.css">
+  <title>R S Tushar | Full-Stack Developer &amp; Open Source Contributor</title>
+  <meta name="description" content="R S Tushar — second-year CS student at Scaler School of Technology (dual degree with BITS Pilani). Full-stack developer (React, Node.js, TypeScript) and open-source contributor to MIT App Inventor and GSSoC '26 projects." />
+  <meta name="author" content="R S Tushar" />
+  <meta name="theme-color" content="#FFD23F" />
+  <link rel="canonical" href="https://tusharcode007.github.io/rstushar_portfolio/" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="R S Tushar | Full-Stack Developer &amp; Open Source Contributor" />
+  <meta property="og:description" content="Projects, open-source work (MIT App Inventor, GSSoC '26) and experience of R S Tushar." />
+  <meta property="og:url" content="https://tusharcode007.github.io/rstushar_portfolio/" />
+  <meta property="og:image" content="https://tusharcode007.github.io/rstushar_portfolio/assets/images/selfpic2.jpeg" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='8' y='8' width='54' height='54' fill='%23111'/%3E%3Crect x='2' y='2' width='54' height='54' fill='%23FFD23F' stroke='%23111' stroke-width='4'/%3E%3Ctext x='29' y='42' font-family='Arial,sans-serif' font-size='30' font-weight='900' text-anchor='middle' fill='%23111'%3ER%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Apply saved theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("js");
+      try {
+        var saved = localStorage.getItem("theme");
+        if (saved === "dark" || saved === "light") d.setAttribute("data-theme", saved);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" d="M2 5h20v14H2zM2 5l10 8 10-8"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" d="M5 2h10l5 5v15H5zM14 2v6h6M8.5 13h8M8.5 17h8"/></symbol>
+  </svg>
 
-  <!-- Loader -->
-  <div id="loader"><span>RST</span></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- Scroll progress -->
-  <div id="scroll-progress"></div>
+  <!-- ===================== NAV ===================== -->
+  <nav id="navbar" aria-label="Primary">
+    <div class="container nav-inner">
+      <a href="#top" class="nav-logo" aria-label="R S Tushar — back to top">RST<span>.</span></a>
 
-  <!-- Navbar -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#about" class="nav-logo">RST</a>
-      <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
       <div class="nav-links" id="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Work</a>
         <a href="#opensource" class="nav-link">Open Source</a>
-        <a href="#academics" class="nav-link">Academics</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
         <a href="#experience" class="nav-link">Experience</a>
-        <a href="#contact" class="nav-link">Connect</a>
-        <a href="https://drive.google.com/file/d/1tBNOlopsH1-23v7Xcb0ywUhOzWUwksZV/view?usp=sharing" target="_blank" rel="noopener" class="nav-cta">Resume ↗</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="https://drive.google.com/file/d/1tBNOlopsH1-23v7Xcb0ywUhOzWUwksZV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-yellow nav-cta">Resume ↗</a>
+      </div>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch to dark theme" title="Toggle light / dark">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg>
+        </button>
+        <button id="nav-toggle" class="icon-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header id="about">
-    <div class="hero-photo">
-      <img src="assets/images/selfpic2.jpeg" alt="R S Tushar" width="180" height="180" loading="eager">
-    </div>
-    <p class="eyebrow">👋 Bengaluru, India</p>
-    <h1 class="glow">Hi, I'm R S Tushar</h1>
-    <h3 class="typewriter"><span id="typewriter-text"></span><span class="cursor">|</span></h3>
-    <p class="hero-desc">
-      2nd  Computer Science student at Scaler School of Technology (dual degree with BITS Pilani).
-      I build full-stack products with React and Node.js, dig into LLM API tooling, and file the kind of
-      bug reports that maintainers can act on without asking follow-up questions.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">▼ Explore my work</a>
-      <a href="#contact" class="btn btn-outline">Get in touch</a>
-    </div>
-  </header>
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <header id="top" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="sticker sticker-pink">📍 Bengaluru, India</p>
+          <h1>Hi, I'm <mark>R&nbsp;S&nbsp;Tushar</mark></h1>
+          <p class="typewriter">
+            <span class="prompt" aria-hidden="true">&gt;</span>
+            <span class="sr-only">Full-Stack Developer, Open Source Contributor, Competitive Programmer, LLM Tooling Tinkerer</span>
+            <span id="typewriter-text" aria-hidden="true">Full-Stack Developer</span><span class="cursor" aria-hidden="true">_</span>
+          </p>
+          <p class="hero-desc">
+            Second-year Computer Science student at <strong>Scaler School of Technology</strong>
+            (dual degree with <strong>BITS Pilani</strong>). I build full-stack products with React, Node.js
+            and TypeScript, dig into LLM tooling, and write bug reports that maintainers can act on
+            without asking a single follow-up question.
+          </p>
+          <div class="hero-actions">
+            <a href="#opensource" class="btn btn-yellow">My open source →</a>
+            <a href="#projects" class="btn btn-white">See projects</a>
+            <a href="https://github.com/Tusharcode007" target="_blank" rel="noopener noreferrer" class="btn btn-ink">
+              <svg class="i" aria-hidden="true"><use href="#i-github"/></svg> GitHub
+            </a>
+          </div>
+        </div>
 
-  <!-- Explore -->
-  <section id="options">
-    <h2>Explore</h2>
-    <div class="options">
-      <a href="#academics" class="option-card">📘 Academics</a>
-      <a href="#projects" class="option-card">💻 Projects</a>
-      <a href="#opensource" class="option-card">🐛 Open Source</a>
-      <a href="#experience" class="option-card">🚀 Experience</a>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="reveal">
-    <h2>💡 Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h4>Languages</h4>
-        <div class="skill-list">
-          <span class="skill-tag">JavaScript (ES6+)</span>
-          <span class="skill-tag">Java</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag learning">TypeScript — learning</span>
+        <div class="hero-photo-wrap">
+          <figure class="hero-photo">
+            <img src="assets/images/selfpic2.jpeg" alt="Portrait of R S Tushar" width="818" height="1179" loading="eager" />
+          </figure>
+          <p class="sticker sticker-green hero-badge"><span class="dot" aria-hidden="true"></span> Open to internships</p>
+          <p class="sticker sticker-blue hero-badge-2">GSSoC '26 ✦</p>
         </div>
       </div>
-      <div class="skill-group">
-        <h4>Frontend</h4>
-        <div class="skill-list">
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">HTML5</span>
-          <span class="skill-tag">CSS3</span>
-          <span class="skill-tag">Recharts</span>
+
+      <div class="container">
+        <ul class="stats" aria-label="Open source at a glance">
+          <li class="stat bg-yellow"><strong>5</strong><span>issues filed in OSS repos</span></li>
+          <li class="stat bg-blue"><strong>3</strong><span>open-source repos contributed to</span></li>
+          <li class="stat bg-pink"><strong>3</strong><span>issues assigned to me in GSSoC '26</span></li>
+          <li class="stat bg-green"><strong>1</strong><span>reported bug fixed upstream</span></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>MIT App Inventor</span><span>✦</span><span>GSSoC '26</span><span>✦</span><span>React</span><span>✦</span><span>Node.js</span><span>✦</span><span>TypeScript</span><span>✦</span><span>Java</span><span>✦</span><span>LLM Tooling</span><span>✦</span><span>Competitive Programming</span><span>✦</span>
+        <span>MIT App Inventor</span><span>✦</span><span>GSSoC '26</span><span>✦</span><span>React</span><span>✦</span><span>Node.js</span><span>✦</span><span>TypeScript</span><span>✦</span><span>Java</span><span>✦</span><span>LLM Tooling</span><span>✦</span><span>Competitive Programming</span><span>✦</span>
+      </div>
+    </div>
+    </div>
+
+    <!-- ===================== OPEN SOURCE ===================== -->
+    <section id="opensource" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-num">01 /</span>
+          <h2><span class="hl bg-green">Open Source</span></h2>
+          <p class="section-sub">Bugs found, reproduced, written up — and fixed. Every link goes to the real thread on GitHub.</p>
+        </div>
+
+        <!-- Featured: MIT App Inventor -->
+        <article class="card card-feature bg-blue reveal">
+          <div class="feature-head">
+            <div>
+              <p class="kicker">Featured · Java · Android</p>
+              <h3>MIT App Inventor</h3>
+              <a class="repo-link" href="https://github.com/mit-cml/appinventor-sources" target="_blank" rel="noopener noreferrer">mit-cml/appinventor-sources ↗</a>
+            </div>
+            <span class="badge badge-ink">Oct 2026</span>
+          </div>
+
+          <div class="feature-items">
+            <div class="feature-item">
+              <div class="item-top">
+                <span class="badge badge-open">Open · bug</span>
+                <span class="item-num">Issue #4204</span>
+              </div>
+              <h4>Sharing reports the wrong <code>methodName</code> in <code>ErrorOccurred</code></h4>
+              <p>
+                Found that <code>ShareFile</code> and <code>ShareFileWithMessage</code> report each other's name
+                when the file is missing (error 2001) — an inverted condition that had sat in
+                <code>Sharing.java</code> since 2014. Apps that branch on <code>methodName</code> in
+                <code>Screen.ErrorOccurred</code> take the wrong path. Filed with a step-by-step Companion repro.
+              </p>
+              <a class="text-link" href="https://github.com/mit-cml/appinventor-sources/issues/4204" target="_blank" rel="noopener noreferrer">Read the issue ↗</a>
+            </div>
+
+            <div class="feature-item">
+              <div class="item-top">
+                <span class="badge badge-pending">Fix ready · PR pending</span>
+                <span class="item-num">Branch</span>
+              </div>
+              <h4>Fix + Robolectric test on my fork</h4>
+              <p>
+                Each block now passes its own name to a shared private helper, so the error always names the
+                block that was actually called — including <code>ShareFileWithMessage</code> with an empty
+                message. Covered by a new <code>SharingTest</code> with all three cases.
+              </p>
+              <a class="text-link" href="https://github.com/Tusharcode007/appinventor-sources/tree/fix-sharing-error-method-name" target="_blank" rel="noopener noreferrer">View the branch ↗</a>
+            </div>
+
+            <div class="feature-item">
+              <div class="item-top">
+                <span class="badge badge-ink">Triage</span>
+                <span class="item-num">Issue #3876</span>
+              </div>
+              <h4>Untangled the README's Java 11 vs 17 confusion</h4>
+              <p>
+                Traced the reported build-vs-dev-server JDK split to the new backend (<code>5100c1b</code>),
+                which had already removed the App Engine dev-server steps, and flagged the leftover
+                <code>java17</code> runtime in <code>appengine-web.xml</code> for the maintainers.
+              </p>
+              <a class="text-link" href="https://github.com/mit-cml/appinventor-sources/issues/3876#issuecomment-6502349094" target="_blank" rel="noopener noreferrer">Read my comment ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- GSSoC -->
+        <div class="oss-subhead reveal">
+          <h3>GirlScript Summer of Code '26</h3>
+          <span class="badge badge-ink">Contributor · May 2026 – Present</span>
+        </div>
+
+        <div class="oss-grid">
+          <article class="card oss-card reveal">
+            <div class="item-top">
+              <span class="badge badge-closed">Closed · fixed</span>
+              <span class="item-num">#511</span>
+            </div>
+            <a class="repo-link" href="https://github.com/S3DFX-CYBER/FindMyGSoC" target="_blank" rel="noopener noreferrer">S3DFX-CYBER/FindMyGSoC ↗</a>
+            <h4>Inconsistent organization-modal interactions</h4>
+            <p>The card body didn't open the details modal, backdrop clicks didn't close it, and the close button scrolled out of view on long content. Labelled <code>gssoc26</code> · <code>level:beginner</code> and fixed upstream.</p>
+            <a class="text-link" href="https://github.com/S3DFX-CYBER/FindMyGSoC/issues/511" target="_blank" rel="noopener noreferrer">Issue #511 ↗</a>
+          </article>
+
+          <article class="card oss-card reveal">
+            <div class="item-top">
+              <span class="badge badge-assigned">Assigned to me</span>
+              <span class="item-num">#25</span>
+            </div>
+            <a class="repo-link" href="https://github.com/vie-nyx/TeaAndBooks" target="_blank" rel="noopener noreferrer">vie-nyx/TeaAndBooks ↗</a>
+            <h4>Create Group modal: submit &amp; keyboard broken</h4>
+            <p>The Create button and Enter key did nothing and backdrop clicks didn't close the dialog. With the maintainer's input, the scope now includes a clear "add more than one member" validation message.</p>
+            <a class="text-link" href="https://github.com/vie-nyx/TeaAndBooks/issues/25" target="_blank" rel="noopener noreferrer">Issue #25 ↗</a>
+          </article>
+
+          <article class="card oss-card reveal">
+            <div class="item-top">
+              <span class="badge badge-assigned">Assigned to me</span>
+              <span class="item-num">#26</span>
+            </div>
+            <a class="repo-link" href="https://github.com/vie-nyx/TeaAndBooks" target="_blank" rel="noopener noreferrer">vie-nyx/TeaAndBooks ↗</a>
+            <h4>Same user can review a book multiple times</h4>
+            <p>Duplicate reviews were accepted and listed separately. Proposed one review per user per book, with validation feedback or an edit-existing-review flow.</p>
+            <a class="text-link" href="https://github.com/vie-nyx/TeaAndBooks/issues/26" target="_blank" rel="noopener noreferrer">Issue #26 ↗</a>
+          </article>
+
+          <article class="card oss-card reveal">
+            <div class="item-top">
+              <span class="badge badge-assigned">Assigned to me</span>
+              <span class="item-num">#27</span>
+            </div>
+            <a class="repo-link" href="https://github.com/vie-nyx/TeaAndBooks" target="_blank" rel="noopener noreferrer">vie-nyx/TeaAndBooks ↗</a>
+            <h4>No way to delete or edit your own posts</h4>
+            <p>Published feed posts had no management controls. Assigned with a wider scope from the maintainer: both delete <em>and</em> edit for post owners.</p>
+            <a class="text-link" href="https://github.com/vie-nyx/TeaAndBooks/issues/27" target="_blank" rel="noopener noreferrer">Issue #27 ↗</a>
+          </article>
+        </div>
+
+        <aside class="card card-method bg-yellow reveal" aria-label="How I write bug reports">
+          <h3>How I write a bug report</h3>
+          <ol class="method-list">
+            <li><strong>Environment</strong> — browser, device, OS or Companion build.</li>
+            <li><strong>Numbered repro steps</strong> — anyone can follow them cold.</li>
+            <li><strong>Expected vs. actual</strong> — stated separately, no guessing.</li>
+            <li><strong>Evidence</strong> — annotated screenshots or the exact source line.</li>
+            <li><strong>Impact</strong> — who it hurts and why it's worth fixing.</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-num">02 /</span>
+          <h2><span class="hl bg-pink">Projects</span></h2>
+          <p class="section-sub">Things I designed, built and shipped end to end.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card reveal">
+            <div class="project-top bg-yellow">
+              <span class="project-tag">AI · Ed-tech</span>
+              <span class="project-icon" aria-hidden="true">📝</span>
+            </div>
+            <div class="project-body">
+              <h3>GradeSense</h3>
+              <p>AI exam grader: upload a question paper, a student's answer PDF and a rubric. An LLM grades every rubric criterion with verbatim evidence, a 7-step validation pipeline blocks hallucinated points and wrong totals, handwritten PDFs fall back to OCR, and feedback is exported as an annotated PDF.</p>
+              <ul class="tech" aria-label="Tech stack">
+                <li>TypeScript</li><li>Node.js</li><li>Express</li><li>React</li><li>Groq LLM</li><li>Tesseract.js</li><li>SQLite</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn-sm btn-white" href="https://github.com/Tusharcode007/gradeSense" target="_blank" rel="noopener noreferrer">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-top bg-blue">
+              <span class="project-tag">LLM cost observability</span>
+              <span class="project-icon" aria-hidden="true">🔍</span>
+            </div>
+            <div class="project-body">
+              <h3>TokenSense</h3>
+              <p>Hackathon team project: a CLI that analyses LLM API usage logs, runs 4 deterministic waste-detection rules, breaks costs down per team with week-over-week trends, and recommends fixes with monthly dollar-savings estimates — as a console report or a Slack-ready digest.</p>
+              <ul class="tech" aria-label="Tech stack">
+                <li>TypeScript</li><li>Node.js</li><li>CLI</li><li>LLM APIs</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn-sm btn-white" href="https://github.com/Tusharcode007/TokenSense" target="_blank" rel="noopener noreferrer">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-top bg-green">
+              <span class="project-tag">Project management</span>
+              <span class="project-icon" aria-hidden="true">⚙️</span>
+            </div>
+            <div class="project-body">
+              <h3>FlowForge</h3>
+              <p>A focused project-execution workspace: turn projects into tasks, track real completion and spot overdue work at a glance. Email/password auth and per-user data isolation through Supabase Row Level Security.</p>
+              <ul class="tech" aria-label="Tech stack">
+                <li>React 19</li><li>TypeScript</li><li>Vite</li><li>Supabase</li><li>PostgreSQL</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn-sm btn-yellow" href="https://flow-forge-neon-nine.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+                <a class="btn btn-sm btn-white" href="https://github.com/Tusharcode007/FlowForge-" target="_blank" rel="noopener noreferrer">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-top bg-pink">
+              <span class="project-tag">E-commerce</span>
+              <span class="project-icon" aria-hidden="true">🛒</span>
+            </div>
+            <div class="project-body">
+              <h3>ShopKartt</h3>
+              <p>Full-stack store with catalog search and filters, a cart synced to the signed-in customer, JWT auth in HTTP-only cookies, and Razorpay checkout (test mode) with server-side price and stock checks, HMAC signature verification and order history.</p>
+              <ul class="tech" aria-label="Tech stack">
+                <li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>JWT</li><li>Razorpay</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn-sm btn-white" href="https://github.com/Tusharcode007/shopkartt" target="_blank" rel="noopener noreferrer">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-top bg-purple">
+              <span class="project-tag">Academic management</span>
+              <span class="project-icon" aria-hidden="true">📚</span>
+            </div>
+            <div class="project-body">
+              <h3>AI-Powered Study Companion</h3>
+              <p>An 8-module React SPA: subjects and topic notes, filterable and sortable tasks, an automatic revision planner, a Recharts analytics dashboard and an AI-style assistant for summaries, flashcards and practice questions. Fully client-side with LocalStorage.</p>
+              <ul class="tech" aria-label="Tech stack">
+                <li>React</li><li>JavaScript</li><li>Recharts</li><li>LocalStorage</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn-sm btn-yellow" href="https://tusharcode007.github.io/rst-AI-Powered-Study-Companion-/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+                <a class="btn btn-sm btn-white" href="https://github.com/Tusharcode007/rst-AI-Powered-Study-Companion-" target="_blank" rel="noopener noreferrer">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-top bg-orange">
+              <span class="project-tag">Productivity</span>
+              <span class="project-icon" aria-hidden="true">⏱️</span>
+            </div>
+            <div class="project-body">
+              <h3>Productivity Booster</h3>
+              <p>A neo-brutalist, all-in-one dashboard: Pomodoro timer, meditation zone, prioritised tasks, habit tracking and goals, plus a live theme customiser. Runs entirely in the browser — no login, no backend.</p>
+              <ul class="tech" aria-label="Tech stack">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>LocalStorage</li>
+              </ul>
+              <div class="project-links">
+                <a class="btn btn-sm btn-yellow" href="https://productivity-booster-b27e.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+                <a class="btn btn-sm btn-white" href="https://github.com/Tusharcode007/PRODUCTIVITY-BOOSTER" target="_blank" rel="noopener noreferrer">Code ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="card more-card reveal">
+          <h3>Also on my GitHub</h3>
+          <ul class="more-list">
+            <li><a href="https://github.com/Tusharcode007/makeSENSE" target="_blank" rel="noopener noreferrer">MakeSense AI ↗</a><span>Context-aware assistant that acts on Google Calendar, Gmail &amp; Drive · TypeScript, Express</span></li>
+            <li><a href="https://github.com/Tusharcode007/calSync" target="_blank" rel="noopener noreferrer">calSync ↗</a><span>Voice-enabled daily-routine manager that syncs to Google Calendar · React, Express, OAuth 2.0</span></li>
+            <li><a href="https://github.com/Tusharcode007/codecrafters-shell-java" target="_blank" rel="noopener noreferrer">Build-your-own Shell ↗</a><span>POSIX-style shell in Java · CodeCrafters challenge</span></li>
+          </ul>
+          <a class="btn btn-ink" href="https://github.com/Tusharcode007?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories ↗</a>
         </div>
       </div>
-      <div class="skill-group">
-        <h4>Backend &amp; Data</h4>
-        <div class="skill-list">
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">MySQL</span>
-          <span class="skill-tag">CLI Tooling</span>
-          <span class="skill-tag">Log Parsing</span>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-num">03 /</span>
+          <h2><span class="hl bg-yellow">Skills</span></h2>
+          <p class="section-sub">What I reach for when I build.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card skill-card reveal">
+            <h3><span class="chip bg-yellow" aria-hidden="true">{ }</span> Languages</h3>
+            <ul class="tags">
+              <li>JavaScript (ES6+)</li><li>TypeScript</li><li>Java</li><li>SQL</li>
+            </ul>
+          </div>
+          <div class="card skill-card reveal">
+            <h3><span class="chip bg-pink" aria-hidden="true">&lt;/&gt;</span> Frontend</h3>
+            <ul class="tags">
+              <li>React</li><li>Vite</li><li>React Router</li><li>HTML5</li><li>CSS3</li><li>Recharts</li>
+            </ul>
+          </div>
+          <div class="card skill-card reveal">
+            <h3><span class="chip bg-blue" aria-hidden="true">⚡</span> Backend &amp; Data</h3>
+            <ul class="tags">
+              <li>Node.js</li><li>Express</li><li>MongoDB</li><li>MySQL</li><li>PostgreSQL / Supabase</li><li>SQLite</li>
+            </ul>
+          </div>
+          <div class="card skill-card reveal">
+            <h3><span class="chip bg-green" aria-hidden="true">✦</span> AI &amp; Tooling</h3>
+            <ul class="tags">
+              <li>LLM APIs</li><li>CLI tooling</li><li>Log parsing</li><li>OCR (Tesseract.js)</li><li>Zod</li>
+            </ul>
+          </div>
+          <div class="card skill-card reveal">
+            <h3><span class="chip bg-purple" aria-hidden="true">⌘</span> Tools</h3>
+            <ul class="tags">
+              <li>Git</li><li>GitHub</li><li>Linux</li><li>VS Code</li><li>NumPy</li><li>Pandas</li>
+            </ul>
+          </div>
+          <div class="card skill-card reveal">
+            <h3><span class="chip bg-orange" aria-hidden="true">∑</span> CS Fundamentals</h3>
+            <ul class="tags">
+              <li>Data Structures &amp; Algorithms</li><li>OOP</li><li>DBMS</li><li>Linear Algebra</li><li>Data Analytics</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="skill-group">
-        <h4>Tools</h4>
-        <div class="skill-list">
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">GitHub</span>
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">NumPy</span>
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">VS Code</span>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-num">04 /</span>
+          <h2><span class="hl bg-blue">Experience</span></h2>
+          <p class="section-sub">Leadership, clubs and community.</p>
+        </div>
+
+        <ol class="timeline">
+          <li class="card exp-card reveal">
+            <div class="exp-head">
+              <h3>Head of Partnerships</h3>
+              <span class="badge badge-ink">Jul 2026 – Present</span>
+            </div>
+            <p class="exp-org">E-Cell, Scaler School of Technology</p>
+            <p>Own the sponsor pipeline end to end for the campus entrepreneurship cell — running parallel conversations to closure and coordinating deliverables across teams under fixed event deadlines.</p>
+          </li>
+          <li class="card exp-card reveal">
+            <div class="exp-head">
+              <h3>Open Source Contributor</h3>
+              <span class="badge badge-ink">May 2026 – Present</span>
+            </div>
+            <p class="exp-org">GirlScript Summer of Code '26 · MIT App Inventor</p>
+            <p>Test live open-source apps, file reproducible bug reports and pick up assigned fixes — from React web apps in GSSoC '26 to Android component code in MIT App Inventor.</p>
+          </li>
+          <li class="card exp-card reveal">
+            <div class="exp-head">
+              <h3>Member</h3>
+              <span class="badge badge-ink">May 2026 – Jul 2026</span>
+            </div>
+            <p class="exp-org">NlogN — The Competitive Programming Club, SST</p>
+            <p>Solved timed algorithmic problems (DSA, greedy, graph theory) under contest conditions — building accuracy under time pressure and an edge-case-first habit.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-num">05 /</span>
+          <h2><span class="hl bg-purple">Education</span></h2>
+          <p class="section-sub">Dual degree, 2025 – 2029.</p>
+        </div>
+
+        <div class="edu-grid">
+          <article class="card edu-card reveal">
+            <div class="edu-logo"><img src="assets/images/sstlogo.png" alt="Scaler School of Technology logo" width="162" height="148" loading="lazy" /></div>
+            <div>
+              <h3>Scaler School of Technology</h3>
+              <p class="edu-degree">UG Programme — Computer Science &amp; Artificial Intelligence</p>
+              <span class="badge badge-ink">Aug 2025 – Aug 2029</span>
+            </div>
+          </article>
+          <article class="card edu-card reveal">
+            <div class="edu-logo"><img src="assets/images/bitslogo.png" alt="BITS Pilani logo" width="148" height="148" loading="lazy" /></div>
+            <div>
+              <h3>BITS Pilani</h3>
+              <p class="edu-degree">B.Sc. Computer Science (Dual Degree)</p>
+              <span class="badge badge-ink">Aug 2025 – Aug 2029</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="goals-grid">
+          <div class="card goal-card bg-green reveal">
+            <p class="kicker">Next up</p>
+            <h3>Short-term</h3>
+            <p>Land my App Inventor fix and the GSSoC '26 fixes assigned to me, sharpen problem-solving through competitive programming, and go deeper on full-stack and LLM-powered tooling.</p>
+          </div>
+          <div class="card goal-card bg-pink reveal">
+            <p class="kicker">The big picture</p>
+            <h3>Long-term</h3>
+            <p>Work at the intersection of AI-driven products and scalable systems — building real-world software that people rely on daily.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects -->
-  <section id="projects" class="reveal">
-    <h2>💻 Work</h2>
-    <p class="section-sub">Projects I designed, built, and shipped end to end.</p>
-    <div class="projects-grid" id="projects-grid">
-      <!-- injected by js/script.js -->
-      <div class="project-card loading">LOADING…</div>
-      <div class="project-card loading">LOADING…</div>
-      <div class="project-card loading">LOADING…</div>
-    </div>
-  </section>
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="card contact-card bg-yellow reveal">
+          <span class="section-num">06 /</span>
+          <h2>Let's build something.</h2>
+          <p>Open to internships and collaborations — always happy to talk shop about open source, React or LLM tooling.</p>
 
-  <!-- Open Source -->
-  <section id="opensource" class="reveal">
-    <h2>🐛 Open Source Contributions</h2>
-    <p class="section-sub">GirlScript Summer of Code (GSSoC) — structured bug reports across live OSS repositories.</p>
-    <div class="oss-card">
-      <div class="oss-summary">
-        <div class="oss-stat">
-          <span class="oss-stat-num">4+</span>
-          <span class="oss-stat-label">Reproducible bugs filed</span>
+          <div class="email-row">
+            <a class="email-link" href="mailto:rstusharsst@gmail.com">rstusharsst@gmail.com</a>
+            <button id="copy-email" class="btn btn-sm btn-white" type="button" data-email="rstusharsst@gmail.com">Copy</button>
+            <span id="copy-status" class="copy-status" role="status" aria-live="polite"></span>
+          </div>
+
+          <div class="contact-links">
+            <a class="btn btn-ink" href="mailto:rstusharsst@gmail.com">
+              <svg class="i" aria-hidden="true"><use href="#i-mail"/></svg> Email
+            </a>
+            <a class="btn btn-white" href="https://www.linkedin.com/in/r-s-tushar-824518222" target="_blank" rel="noopener noreferrer">
+              <svg class="i" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn
+            </a>
+            <a class="btn btn-white" href="https://github.com/Tusharcode007" target="_blank" rel="noopener noreferrer">
+              <svg class="i" aria-hidden="true"><use href="#i-github"/></svg> GitHub
+            </a>
+            <a class="btn btn-white" href="https://drive.google.com/file/d/1tBNOlopsH1-23v7Xcb0ywUhOzWUwksZV/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <svg class="i" aria-hidden="true"><use href="#i-doc"/></svg> Resume
+            </a>
+          </div>
         </div>
-        <p class="oss-desc">
-          Every report follows the same template — environment, numbered reproduction steps, expected vs. actual
-          behaviour, annotated screenshots, and usability impact — so maintainers can triage and fix without
-          circling back for clarification.
-        </p>
       </div>
-      <ul class="oss-links" id="oss-links">
-        <!-- injected by js/script.js -->
-      </ul>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Academics -->
-  <section id="academics" class="reveal">
-    <h2>📘 Academics</h2>
-    <div class="edu-card">
-      <div class="edu-logo"><img src="assets/images/sstlogo.png" alt="Scaler School of Technology logo" loading="lazy"></div>
-      <div class="edu-info">
-        <h3>Scaler School of Technology</h3>
-        <p><strong>UG Programme — Computer Science &amp; Artificial Intelligence</strong></p>
-        <span>Aug 2025 – Aug 2029</span>
-      </div>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> R S Tushar. Built with plain HTML, CSS &amp; JS — brutal on purpose.</p>
+      <a href="https://github.com/Tusharcode007/rstushar_portfolio" target="_blank" rel="noopener noreferrer" class="text-link">Source on GitHub ↗</a>
     </div>
-    <div class="edu-card">
-      <div class="edu-logo"><img src="assets/images/bitslogo.png" alt="BITS Pilani logo" loading="lazy"></div>
-      <div class="edu-info">
-        <h3>BITS Pilani</h3>
-        <p><strong>B.Sc. Computer Science (Dual Degree)</strong></p>
-        <span>Aug 2025 – Aug 2029</span>
-      </div>
-    </div>
-    <div class="coursework">
-      <span class="skill-tag">Data Structures &amp; Algorithms</span>
-      <span class="skill-tag">OOP</span>
-      <span class="skill-tag">DBMS</span>
-      <span class="skill-tag">Web Development</span>
-      <span class="skill-tag">Data Analytics</span>
-      <span class="skill-tag">Linear Algebra</span>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" class="reveal">
-    <h2>🚀 Experience &amp; Leadership</h2>
-    <div class="exp-card">
-      <div class="exp-head">
-        <h3>Head of Partnerships</h3>
-        <span class="exp-date">Jul 2026 – Present</span>
-      </div>
-      <p class="exp-org">E-Cell, Scaler School of Technology</p>
-      <p>Own the sponsor pipeline end to end for the campus entrepreneurship cell — running parallel conversations to closure and coordinating deliverables across teams under fixed event deadlines.</p>
-    </div>
-    <div class="exp-card">
-      <div class="exp-head">
-        <h3>Member</h3>
-        <span class="exp-date">May 2026 – July 2026</span>
-      </div>
-      <p class="exp-org">NlogN — The Competitive Programming Club, SST</p>
-      <p>Solving timed algorithmic problems (DSA, greedy, graph theory) under contest conditions — sustained accuracy under time pressure and an edge-case-first habit.</p>
-    </div>
-  </section>
-
-  <!-- Goals -->
-  <section id="goals" class="reveal">
-    <h2>🎯 Goals</h2>
-    <div class="goals-grid">
-      <div class="goal-card">
-        <h4>Short-term</h4>
-        <p>Ship impactful open-source contributions, sharpen problem-solving through competitive programming, and go deeper on full-stack + LLM-powered tooling.</p>
-      </div>
-      <div class="goal-card">
-        <h4>Long-term</h4>
-        <p>Work at the intersection of AI-driven products and scalable systems — building real-world software that people rely on daily.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="reveal">
-    <h2>📩 Contact</h2>
-    <p class="section-sub">Open to internships and collaborations — always happy to talk shop.</p>
-    <div class="contact-links">
-      <a href="mailto:rstusharsst@gmail.com"><img src="https://img.icons8.com/ios-filled/30/ffffff/new-post.png" alt="" width="24" height="24"/> Mail me</a>
-      <a href="https://www.linkedin.com/in/r-s-tushar-824518222/" target="_blank" rel="noopener"><img src="https://img.icons8.com/ios-filled/30/ffffff/linkedin.png" alt="" width="24" height="24"/> LinkedIn</a>
-      <a href="https://github.com/Tusharcode007" target="_blank" rel="noopener"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/github.png" alt="" width="24" height="24"/> GitHub</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© <span id="year"></span> R S Tushar. All Rights Reserved.</p>
   </footer>
 
-  <!-- Back to top -->
-  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <button id="back-to-top" class="icon-btn" type="button" aria-label="Back to top">↑</button>
 
   <script src="js/script.js"></script>
 </body>
