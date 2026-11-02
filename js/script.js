@@ -58,7 +58,6 @@ function initTypewriter() {
   const phrases = [
     "Full-Stack Developer",
     "Open Source Contributor",
-    "Competitive Programmer",
     "LLM Tooling Tinkerer",
   ];
   let phraseIndex = 0;
