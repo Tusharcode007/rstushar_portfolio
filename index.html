@@ -112,7 +112,7 @@
 
       <div class="container">
         <ul class="stats" aria-label="Open source at a glance">
-          <li class="stat bg-yellow"><strong>5</strong><span>issues filed in OSS repos</span></li>
+          <li class="stat bg-yellow"><strong>6</strong><span>issues filed in OSS repos</span></li>
           <li class="stat bg-blue"><strong>3</strong><span>open-source repos contributed to</span></li>
           <li class="stat bg-pink"><strong>3</strong><span>issues assigned to me in GSSoC '26</span></li>
           <li class="stat bg-green"><strong>1</strong><span>reported bug fixed upstream</span></li>
@@ -143,47 +143,54 @@
         <article class="card card-feature bg-blue reveal">
           <div class="feature-head">
             <div>
-              <p class="kicker">Featured · Java · Android</p>
+              <p class="kicker">Featured · Java · Swift · Android &amp; iOS</p>
               <h3>MIT App Inventor</h3>
               <a class="repo-link" href="https://github.com/mit-cml/appinventor-sources" target="_blank" rel="noopener noreferrer">mit-cml/appinventor-sources ↗</a>
             </div>
-            <span class="badge badge-ink">Oct 2026</span>
+            <span class="badge badge-ink">Oct – Nov 2026</span>
           </div>
 
           <div class="feature-items">
             <div class="feature-item">
               <div class="item-top">
-                <span class="badge badge-open">Open · bug</span>
-                <span class="item-num">Issue #4204</span>
+                <span class="item-badges"><span class="badge badge-open">Open · bug</span><span class="badge badge-pending">Fix ready</span></span>
+                <span class="item-num">#4204</span>
               </div>
               <h4>Sharing reports the wrong <code>methodName</code> in <code>ErrorOccurred</code></h4>
               <p>
-                Found that <code>ShareFile</code> and <code>ShareFileWithMessage</code> report each other's name
-                when the file is missing (error 2001) — an inverted condition that had sat in
-                <code>Sharing.java</code> since 2014. Apps that branch on <code>methodName</code> in
-                <code>Screen.ErrorOccurred</code> take the wrong path. Filed with a step-by-step Companion repro.
+                <code>ShareFile</code> and <code>ShareFileWithMessage</code> reported each other's name when the
+                file was missing (error 2001) — an inverted condition that had sat in <code>Sharing.java</code>
+                since 2014. My fix passes each block's own name to a shared helper, covered by a new
+                Robolectric <code>SharingTest</code>.
               </p>
-              <a class="text-link" href="https://github.com/mit-cml/appinventor-sources/issues/4204" target="_blank" rel="noopener noreferrer">Read the issue ↗</a>
+              <div class="item-links">
+                <a class="text-link" href="https://github.com/mit-cml/appinventor-sources/issues/4204" target="_blank" rel="noopener noreferrer">Issue ↗</a>
+                <a class="text-link" href="https://github.com/Tusharcode007/appinventor-sources/tree/fix-sharing-error-method-name" target="_blank" rel="noopener noreferrer">Fix branch ↗</a>
+              </div>
             </div>
 
             <div class="feature-item">
               <div class="item-top">
-                <span class="badge badge-pending">Fix ready · PR pending</span>
-                <span class="item-num">Branch</span>
+                <span class="item-badges"><span class="badge badge-open">Open · bug</span><span class="badge badge-pending">Fix ready</span></span>
+                <span class="item-num">#4209</span>
               </div>
-              <h4>Fix + Robolectric test on my fork</h4>
+              <h4>Bad XML in <code>Web</code> reported as a JSON error</h4>
               <p>
-                Each block now passes its own name to a shared private helper, so the error always names the
-                block that was actually called — including <code>ShareFileWithMessage</code> with an empty
-                message. Covered by a new <code>SharingTest</code> with all three cases.
+                <code>XMLTextDecode</code> and <code>XMLTextDecodeAsDictionary</code> fired error 1105 "Unable to
+                decode the JSON text" on invalid XML, although error 1115 was added for exactly this in 2014 and
+                never used on Android — and iOS disagreed between the two blocks. My fix moves Android and iOS to
+                1115, with updated <code>WebTest</code> coverage.
               </p>
-              <a class="text-link" href="https://github.com/Tusharcode007/appinventor-sources/tree/fix-sharing-error-method-name" target="_blank" rel="noopener noreferrer">View the branch ↗</a>
+              <div class="item-links">
+                <a class="text-link" href="https://github.com/mit-cml/appinventor-sources/issues/4209" target="_blank" rel="noopener noreferrer">Issue ↗</a>
+                <a class="text-link" href="https://github.com/Tusharcode007/appinventor-sources/tree/fix-web-xml-decode-error-code" target="_blank" rel="noopener noreferrer">Fix branch ↗</a>
+              </div>
             </div>
 
             <div class="feature-item">
               <div class="item-top">
                 <span class="badge badge-ink">Triage</span>
-                <span class="item-num">Issue #3876</span>
+                <span class="item-num">#3876</span>
               </div>
               <h4>Untangled the README's Java 11 vs 17 confusion</h4>
               <p>
@@ -463,7 +470,7 @@
               <span class="badge badge-ink">May 2026 – Present</span>
             </div>
             <p class="exp-org">GirlScript Summer of Code '26 · MIT App Inventor</p>
-            <p>Test live open-source apps, file reproducible bug reports and pick up assigned fixes — from React web apps in GSSoC '26 to Android component code in MIT App Inventor.</p>
+            <p>Test live open-source apps, file reproducible bug reports and pick up assigned fixes — from React web apps in GSSoC '26 to Android and iOS component code in MIT App Inventor.</p>
           </li>
           <li class="card exp-card reveal">
             <div class="exp-head">
@@ -509,7 +516,7 @@
           <div class="card goal-card bg-green reveal">
             <p class="kicker">Next up</p>
             <h3>Short-term</h3>
-            <p>Land my App Inventor fix and the GSSoC '26 fixes assigned to me, ship more full-stack products, and go deeper on LLM-powered tooling.</p>
+            <p>Get my two App Inventor fixes merged, land the GSSoC '26 fixes assigned to me, ship more full-stack products, and go deeper on LLM-powered tooling.</p>
           </div>
           <div class="card goal-card bg-pink reveal">
             <p class="kicker">The big picture</p>

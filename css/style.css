@@ -390,6 +390,8 @@ code {
 .feature-item h4 { font-size: 1.12rem; line-height: 1.35; margin-bottom: 10px; }
 .feature-item p { font-size: .96rem; color: var(--muted); margin-bottom: 16px; flex: 1; }
 .feature-item .text-link { align-self: flex-start; }
+.item-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.item-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 
 .oss-subhead { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 56px 0 24px; }
 .oss-subhead h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
