@@ -58,7 +58,7 @@ function initTypewriter() {
   const phrases = [
     "Full-Stack Developer",
     "Open Source Contributor",
-    "LLM Tooling Tinkerer",
+    "AI Application Developer",
   ];
   let phraseIndex = 0;
   let charIndex = phrases[0].length;

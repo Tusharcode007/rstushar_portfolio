@@ -1,0 +1,46 @@
+# Refreshes the data behind the Activity section (GitHub contributions +
+# LeetCode submissions). activity.json is published to the `data` branch
+# (force-pushed, no history), so `main` only ever contains hand-written commits.
+
+name: Activity data
+
+on:
+  schedule:
+    - cron: "15 */6 * * *" # every 6 hours
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/fetch-activity.mjs", ".github/workflows/activity.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: activity-data
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch activity
+        run: node scripts/fetch-activity.mjs dist/activity.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to the data branch
+        uses: crazy-max/ghaction-github-pages@df5cc2bfa78282ded844b354faee141f06b41865 # v4.2.0
+        with:
+          target_branch: data
+          build_dir: dist
+          jekyll: false
+          commit_message: Update activity data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
