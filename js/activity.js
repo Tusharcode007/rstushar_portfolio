@@ -322,10 +322,8 @@
   function fail() {
     status.replaceChildren(
       "Activity data couldn't be loaded right now. See my ",
-      link("https://github.com/Tusharcode007", "GitHub"),
-      " and ",
-      link("https://leetcode.com/u/Z2N2oTuz4h/", "LeetCode"),
-      " profiles instead."
+      link("https://github.com/Tusharcode007", "GitHub profile"),
+      " for recent activity."
     );
   }
 
