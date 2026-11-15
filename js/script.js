@@ -57,7 +57,7 @@ function initTypewriter() {
 
   const phrases = [
     "Full-Stack Developer",
-    "Open Source Contributor",
+    "Computer Science Student",
     "AI Application Developer",
   ];
   let phraseIndex = 0;
